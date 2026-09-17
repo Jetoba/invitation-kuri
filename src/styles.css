@@ -71,6 +71,19 @@ h1{
   font-size:12px; cursor:pointer; transition:.25s ease; box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 .btn:hover{transform:translateY(-2px); box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.password-form{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px;
+}
+.password-input{
+  border:1px solid var(--gold); background:rgba(15,30,26,.6); color:#f0e2bf;
+  padding:15px 20px; letter-spacing:.1em; font-size:14px; font-family:Georgia, "Times New Roman", serif;
+  border-radius:2px; outline:none; min-width:200px;
+}
+.password-input::placeholder{color:#8f815f}
+.password-input:focus{border-color:var(--gold2); box-shadow:0 0 0 3px rgba(224,196,123,.15)}
+.password-error{
+  flex-basis:100%; text-align:center; color:#e08b7b; font-size:12px; letter-spacing:.08em;
+}
 .gear{
   position:absolute; border:1px solid rgba(185,151,81,.22); border-radius:50%;
   opacity:.55; animation:spin 28s linear infinite;
@@ -164,7 +177,7 @@ footer.footer-fixed{position:fixed;left:0;right:0;bottom:0;padding:14px 24px 28p
 
 .secret.hidden{display:none}
 .secret.revealed{animation:secretReveal .9s ease both}
-@keyframes secretReveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes secretReveal{from{opacity:0}to{opacity:1}}
 .quote-box{
   margin:34px 0; padding:26px 30px; border-top:1px solid rgba(93,70,31,.42); border-bottom:1px solid rgba(93,70,31,.42);
   font-size:clamp(17px,4.2vw,24px); line-height:1.5; text-align:center; font-style:italic; color:#50432c;
