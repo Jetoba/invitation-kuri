@@ -37,7 +37,7 @@ export default function App() {
         <Dare />
       </main>
 
-      <Footer />
+      <Footer opened={opened} />
     </>
   );
 }

@@ -24,27 +24,19 @@ export default function Expediente() {
             <p>Tras varias investigaciones, hemos descubierto su verdadera naturaleza:</p>
 
             <p>
-              <strong>una puerta hacia un mundo donde lo imposible es posible.</strong>
+              <strong>Una puerta hacia un mundo donde lo imposible es posible.</strong>
             </p>
 
             <p>
-              📍 Destino: KURIOS
+              🎪 Destino: KURIOS
               <br />
-              👤 Sujetos autorizados: 2
+              🕵️ Sujetos autorizados: 2
               <br />
-              🎟️ Acceso: concedido
+              🗝️ Acceso: Concedido
             </p>
-
-            <p style={{ marginTop: 34 }}>
-              <strong>Sandy,</strong>
-            </p>
-
-            <p>hay experiencias que no tienen mucho sentido si se viven solo.</p>
-
-            <p>Así que esta vez no te regalo solamente una entrada.</p>
 
             <p>
-              <strong>Te regalo una aventura para que la descubramos juntos.</strong>
+              <strong></strong>
             </p>
 
             <p style={{ marginTop: 34 }}>
