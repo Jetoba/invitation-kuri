@@ -143,13 +143,14 @@ section{padding:64px 0}
 }
 .final h2{font-size:clamp(26px,7vw,72px);font-weight:normal; margin:0 0 22px; color:#e6d3a7}
 .final p{color:#a69b80;max-width:670px;margin:0 auto 32px;line-height:1.75;font-size:clamp(16px,3.8vw,18px)}
-footer{padding:24px;text-align:center;color:#655f50;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-footer.footer-fixed{position:fixed;left:0;right:0;bottom:0;padding:14px 24px;z-index:5}
+footer{padding:24px 24px 48px;text-align:center;color:#655f50;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+footer.footer-fixed{position:fixed;left:0;right:0;bottom:0;padding:14px 24px 28px;z-index:5}
 
 @media(max-width:780px){
   .ticket{grid-template-columns:1fr}
   .ticket-main{border-right:0;border-bottom:2px dashed #6e5934}
   .gear.g1{left:-120px}.gear.g2{right:-40px}
+  .eyebrow{font-size:10px; letter-spacing:.22em}
 }
 @media print{
   body{background:white;color:black}
