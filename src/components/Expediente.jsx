@@ -28,8 +28,6 @@ export default function Expediente() {
             </p>
 
             <p>
-              🎪 Destino: KURIOS
-              <br />
               🕵️ Sujetos autorizados: 2
               <br />
               🗝️ Acceso: Concedido
