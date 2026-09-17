@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-const PASSWORD = "circo";
+const PASSWORD = "llave";
 
 export default function Hero({ onOpen, opened }) {
   const [showForm, setShowForm] = useState(false);
-  const [value, setValue] = useState("");
+  const [chars, setChars] = useState(Array(PASSWORD.length).fill(""));
   const [error, setError] = useState(false);
+  const inputsRef = useRef([]);
 
   function handleButtonClick() {
     if (opened) return;
     setShowForm(true);
   }
 
+  function handleCharChange(index, raw) {
+    const letter = raw.slice(-1);
+    setChars((prev) => {
+      const next = [...prev];
+      next[index] = letter;
+      return next;
+    });
+    if (error) setError(false);
+    if (letter && index < PASSWORD.length - 1) {
+      inputsRef.current[index + 1]?.focus();
+    }
+  }
+
+  function handleKeyDown(index, e) {
+    if (e.key === "Backspace" && !chars[index] && index > 0) {
+      inputsRef.current[index - 1]?.focus();
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    if (value.trim().toLowerCase() === PASSWORD) {
+    if (chars.join("").trim().toLowerCase() === PASSWORD) {
       setError(false);
       onOpen();
     } else {
@@ -45,21 +65,26 @@ export default function Hero({ onOpen, opened }) {
 
         {showForm && !opened && (
           <form className="password-form" onSubmit={handleSubmit}>
-            <input
-              type="password"
-              className="password-input"
-              placeholder="Clave de acceso"
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-                if (error) setError(false);
-              }}
-              autoFocus
-            />
-            <button className="btn" type="submit">
+            <div className="password-pin">
+              {chars.map((char, index) => (
+                <input
+                  key={index}
+                  ref={(el) => (inputsRef.current[index] = el)}
+                  type="password"
+                  inputMode="text"
+                  maxLength={1}
+                  className="password-pin-cell"
+                  value={char}
+                  onChange={(e) => handleCharChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  autoFocus={index === 0}
+                />
+              ))}
+            </div>
+            <button className="btn password-submit" type="submit">
               Confirmar ✦
             </button>
-            {error && <div className="password-error">Clave incorrecta. Inténtalo de nuevo.</div>}
+            {error && <div className="password-error">Llave incorrecta. Inténtalo de nuevo.</div>}
           </form>
         )}
       </div>
